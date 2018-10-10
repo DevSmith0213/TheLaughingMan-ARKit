@@ -52,8 +52,9 @@ class LaughingMan: SCNNode {
                 leftEye.flatness = 0
                 rightEye.flatness = 0
             
-                // to make everything look smooth you need to set the flatness for these objects in the scenekit editor to something other than 0
-                // set them to 0 in code when the node renders everything looks correct
+            //you need to set the flatness for these objects in the scenekit editor to something other than 0
+            // set them to 0 in code only
+            //when the node renders everything looks correct
         }
         
         addChildNode(node)
