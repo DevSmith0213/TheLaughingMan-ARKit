@@ -42,7 +42,7 @@ class LaughingMan: SCNNode {
         // the phrase is 3DText objects that are childNodes to the letter space
         // rotating the tube after the words are embeded gives the node the laughing man signature look
         
-        container.scale = SCNVector3(0.0014, 0.0014, 0.0014) //scale of laughing man
+        container.scale = SCNVector3(0.0014, 0.0014, 0.0014) // scale of laughing man
         letterSpace.runAction(SCNAction.repeatForever(rotation))
         
         if let textCoverBorder = textCoverBorder.geometry as? SCNText,
