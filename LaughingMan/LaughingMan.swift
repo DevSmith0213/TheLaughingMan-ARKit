@@ -53,6 +53,7 @@ class LaughingMan: SCNNode {
                 rightEye.flatness = 0
             
             //you need to set the flatness for these objects in the scenekit editor to something other than 0
+            
             // set them to 0 in code only
             //when the node renders everything looks correct
         }
