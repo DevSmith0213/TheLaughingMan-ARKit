@@ -41,7 +41,15 @@ class ViewController: UIViewController {
         
         sharedRecorder.delegate = self
         sceneView.delegate = self
+       
         createFaceGeometry()
+        
+        session.delegate = self
+        
+        DispatchQueue.main.async {
+            self.sceneView.layer.cornerRadius = 20
+        }
+        
     }
 
     
@@ -64,7 +72,7 @@ class ViewController: UIViewController {
     // MARK:- Button Actions
     @IBAction func didTappRefreshButton(_ sender: Any) {
         print("didTapRefresh")
-    
+        
         contentTypeSelected = .none
         resetTracking()
     }
@@ -75,17 +83,18 @@ class ViewController: UIViewController {
         
         contentTypeSelected = .mask
         resetTracking()
-        
     }
     
     
     @IBAction func didTapRecordButton(_ sender: Any) {
         print("didTapRecord")
         
+        
         guard sharedRecorder.isAvailable else {
             print("Recording is not available.")
             return
         }
+        
         
         if !isRecording {
             startRecording()
@@ -142,14 +151,17 @@ private extension ViewController {
 
 
 // MARK:- ARSCNViewDelegate Methods Extension
-extension ViewController: ARSCNViewDelegate {
+extension ViewController: ARSCNViewDelegate, ARSessionDelegate {
     
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-        
-        anchorNode = node
-        setupFaceNodeContent()
+            anchorNode = node
     }
     
+    
+    //load the mask properly
+    func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
+            setupFaceNodeContent()
+    }
    
     func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
         
@@ -212,7 +224,7 @@ extension ViewController: RPPreviewViewControllerDelegate, RPScreenRecorderDeleg
         
         if sharedRecorder.isAvailable {
             DispatchQueue.main.async {
-                self.recordButton.setTitle("🔴", for: .normal)
+                self.recordButton.setTitle("[REC]", for: .normal)
             }
         } else {
             DispatchQueue.main.async {
@@ -224,6 +236,8 @@ extension ViewController: RPPreviewViewControllerDelegate, RPScreenRecorderDeleg
     
    
     private func startRecording() {
+        
+        
         self.sharedRecorder.isMicrophoneEnabled = true
         sharedRecorder.startRecording(handler: { error in
             guard error == nil else {
@@ -244,12 +258,14 @@ extension ViewController: RPPreviewViewControllerDelegate, RPScreenRecorderDeleg
     
     func stopRecording() {
         self.sharedRecorder.isMicrophoneEnabled = false
+        
         sharedRecorder.stopRecording(handler: {
             previewViewController, error in
             guard error == nil else {
                 print("Error stopping the recording: \(String(describing: error?.localizedDescription))")
                 return
             }
+            
             
             let alert = UIAlertController(title: "Recording Complete", message: "Do you want to preview/edit your recording or delete it?", preferredStyle: .alert)
             
@@ -261,6 +277,7 @@ extension ViewController: RPPreviewViewControllerDelegate, RPScreenRecorderDeleg
             
             })
             
+            
             let editAction = UIAlertAction(title: "Edit", style: .default, handler: { (action: UIAlertAction) -> Void in
                 if let unwrappedPreview = previewViewController {
                     unwrappedPreview.previewControllerDelegate = self
@@ -271,12 +288,13 @@ extension ViewController: RPPreviewViewControllerDelegate, RPScreenRecorderDeleg
             alert.addAction(editAction)
             alert.addAction(deleteAction)
             self.present(alert, animated: true, completion: nil)
-        }) //end of stopRecording method
+        }) //end of stopRecording closure
         
         
         self.isRecording = false
+        
         DispatchQueue.main.async {
-            self.recordButton.setTitle("🔴", for: .normal)
+            self.recordButton.setTitle("[REC]", for: .normal)
         }
         
     }
@@ -284,3 +302,5 @@ extension ViewController: RPPreviewViewControllerDelegate, RPScreenRecorderDeleg
     
     
 } // end of ReplayKit delegate methods
+
+
