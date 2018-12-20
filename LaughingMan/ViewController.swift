@@ -34,6 +34,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var refreshButton: UIButton!
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var maskButton: UIButton!
+    @IBOutlet weak var rearCameraButton: UIButton!
+    
     
 
     override func viewDidLoad() {
@@ -45,13 +47,20 @@ class ViewController: UIViewController {
         createFaceGeometry()
         
         session.delegate = self
-        
-        DispatchQueue.main.async {
-            self.sceneView.layer.cornerRadius = 20
-        }
-        
     }
-
+    
+    
+    
+    override func viewWillLayoutSubviews() {
+        DispatchQueue.main.async {
+            self.sceneView.layer.cornerRadius = 10
+            self.rearCameraButton.layer.cornerRadius = 10
+            self.recordButton.layer.cornerRadius = 10
+            self.maskButton.layer.cornerRadius = 10
+        }
+    }
+    
+    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -224,11 +233,11 @@ extension ViewController: RPPreviewViewControllerDelegate, RPScreenRecorderDeleg
         
         if sharedRecorder.isAvailable {
             DispatchQueue.main.async {
-                self.recordButton.setTitle("[REC]", for: .normal)
+                self.recordButton.setTitle("[ RECORD ]", for: .normal)
             }
         } else {
             DispatchQueue.main.async {
-                self.recordButton.setTitle("[Can't Rec]", for: .normal)
+                self.recordButton.setTitle("[ Can't Record ]", for: .normal)
             }
         }
         
@@ -236,9 +245,8 @@ extension ViewController: RPPreviewViewControllerDelegate, RPScreenRecorderDeleg
     
    
     private func startRecording() {
-        
-        
         self.sharedRecorder.isMicrophoneEnabled = true
+        
         sharedRecorder.startRecording(handler: { error in
             guard error == nil else {
                 print("Error starting the recording: \(String(describing: error?.localizedDescription))")
@@ -249,7 +257,7 @@ extension ViewController: RPPreviewViewControllerDelegate, RPScreenRecorderDeleg
             self.isRecording = true
             
             DispatchQueue.main.async {
-                self.recordButton.setTitle("[STOP]", for: .normal)
+                self.recordButton.setTitle("[ STOP ]", for: .normal)
             }
             
         })
@@ -294,7 +302,7 @@ extension ViewController: RPPreviewViewControllerDelegate, RPScreenRecorderDeleg
         self.isRecording = false
         
         DispatchQueue.main.async {
-            self.recordButton.setTitle("[REC]", for: .normal)
+            self.recordButton.setTitle("[ RECORD ]", for: .normal)
         }
         
     }
