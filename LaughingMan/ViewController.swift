@@ -28,6 +28,7 @@ class ViewController: UIViewController {
         return sceneView.session
     }
     
+
     
     // MARK:- Outlets
     @IBOutlet weak var sceneView: ARSCNView!
@@ -43,10 +44,8 @@ class ViewController: UIViewController {
         
         sharedRecorder.delegate = self
         sceneView.delegate = self
-       
+         session.delegate = self
         createFaceGeometry()
-        
-        session.delegate = self
     }
     
     
