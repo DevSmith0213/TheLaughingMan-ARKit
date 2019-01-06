@@ -2,7 +2,7 @@
 
 "I thought what I'd do was, I'd pretend I was one of those deaf-mutes"
 
-![](http://thehypedgeek.com/wp-content/uploads/2016/02/laughing-man-gif.gif)
+![img_0018](https://user-images.githubusercontent.com/26630013/50740764-1b32c200-11a8-11e9-88d9-e5f789db2904.png)
 
 After seeing ARKit demos where people were creating masks and filters with the iphone X front camera I wondered if 
 something was possible. One of my favorite shows is Ghost in the Shell Stand Alone Complex. 
