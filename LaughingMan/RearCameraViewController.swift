@@ -12,8 +12,10 @@ import AVFoundation
 import Vision
 import SceneKit
 
+
 class RearCameraViewController: UIViewController {
     // MARK:- Properties
+
     var session = AVCaptureSession()
     var requests = [VNRequest]()
     var mainNode: SCNNode?
@@ -22,12 +24,15 @@ class RearCameraViewController: UIViewController {
     
     @IBOutlet weak var sceneView: ARSCNView!
     @IBOutlet weak var blurView: UIVisualEffectView!
+    @IBOutlet weak var rearCameraButton: UIButton!
     
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         startLiveVideo()
         startFaceTracking()
+        
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -38,6 +43,7 @@ class RearCameraViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
         setupLaughingMan()
         
     }
@@ -60,6 +66,17 @@ class RearCameraViewController: UIViewController {
         sceneView.session.pause()
         scene2.session.pause()
     }
+    
+    
+    
+    
+    @IBAction func frontCameraButtonPressed(_ sender: Any) {
+        
+
+    }
+    
+    
+    
     
     
     
@@ -108,7 +125,7 @@ extension RearCameraViewController: ARSCNViewDelegate {
             node.scale = SCNVector3(0.0050, 0.0050, 0.0050)
             
             
-            let rotation = SCNAction.rotateBy(x: 0, y: 0, z: 1, duration: 0.85)
+            let rotation = SCNAction.rotateBy(x: 0, y: 0, z: 1, duration: 1.23) //1
             letterSpace.runAction(SCNAction.repeatForever(rotation))
             self.mainNode = node
         }
@@ -133,10 +150,15 @@ extension RearCameraViewController: ARSCNViewDelegate {
             let yCord = self.sceneView.frame.size.height * (1 - box.boundingBox.origin.y) - height
             
             
-            self.scene2.frame = CGRect(x: xCord - 25, y: yCord - 10, width: width + 60, height: height + 60)
+            
+            self.scene2.frame = CGRect(x: xCord - 35, y: yCord - 35, width: width + 60, height: height + 60)
+            
             self.scene2.backgroundColor = UIColor.clear
             self.scene2.scene.rootNode.addChildNode(mainNode)
             self.sceneView.addSubview(self.scene2)
+            
+            
+            
         }// end of DispatchQueue
         
         
@@ -179,8 +201,6 @@ extension RearCameraViewController: ARSCNViewDelegate {
 
 
 
-
-
 extension RearCameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
@@ -203,6 +223,7 @@ extension RearCameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate
         
     }
     
-    
 }  // end of extension
+
+
 

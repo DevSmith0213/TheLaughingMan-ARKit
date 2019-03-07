@@ -14,11 +14,13 @@ import ReplayKit
 enum ContentType: Int {
     case none
     case mask
+    
 }
 
 
 class ViewController: UIViewController {
     // MARK:- Properties
+    
     let sharedRecorder = RPScreenRecorder.shared()
     private var isRecording = false
     var anchorNode: SCNNode?
@@ -38,20 +40,25 @@ class ViewController: UIViewController {
     @IBOutlet weak var rearCameraButton: UIButton!
     
     
+  
+    
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         sharedRecorder.delegate = self
         sceneView.delegate = self
-         session.delegate = self
+        session.delegate = self
         createFaceGeometry()
+        
+        sharedRecorder.cameraPosition = RPCameraPosition.front
     }
     
-    
-    
+   
     override func viewWillLayoutSubviews() {
-        DispatchQueue.main.async {
+            DispatchQueue.main.async {
             self.sceneView.layer.cornerRadius = 10
             self.rearCameraButton.layer.cornerRadius = 10
             self.recordButton.layer.cornerRadius = 10
@@ -89,9 +96,15 @@ class ViewController: UIViewController {
     @IBAction func didTapMaskButton(_ sender: Any) {
         print("didTapMask")
         
+       
+        
         contentTypeSelected = .mask
         resetTracking()
     }
+    
+    
+
+    
     
     
     @IBAction func didTapRecordButton(_ sender: Any) {
@@ -106,11 +119,27 @@ class ViewController: UIViewController {
         
         if !isRecording {
             startRecording()
+            rearCameraButton.isHidden = true
+            
         } else {
             stopRecording()
+           
+            rearCameraButton.isHidden = false
         }
         
     }
+    
+    
+    @IBAction func didTapRearCameraButton(_ sender: Any) {
+        print("didTapRearCamera")
+        
+       
+        
+    }
+    
+    
+   
+    
     
     
     
@@ -130,13 +159,17 @@ private extension ViewController {
         configuration.providesAudioData = false
         
         session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
+        
     }
     
     
     func createFaceGeometry() {
         let device = sceneView.device!
+        
         let laughGeometry = ARSCNFaceGeometry(device: device)!
         man = LaughingMan(geometry: laughGeometry)
+        
+      
     }
     
     
@@ -146,7 +179,7 @@ private extension ViewController {
         node.childNodes.forEach { $0.removeFromParentNode() }
         
         switch contentTypeSelected {
-        case.none: break
+        case .none: break
         case .mask: if let man = man { node.addChildNode(man) }
         }
         
@@ -155,6 +188,8 @@ private extension ViewController {
     
     
 } // end of extension
+
+
 
 
 
@@ -168,6 +203,12 @@ extension ViewController: ARSCNViewDelegate, ARSessionDelegate {
     
     //load the mask properly
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
+        guard let estimate = session.currentFrame?.lightEstimate else { return }
+        
+        let intensity = estimate.ambientIntensity / 1000.0
+        sceneView.scene.lightingEnvironment.intensity = intensity
+        
+
             setupFaceNodeContent()
     }
    
@@ -232,11 +273,13 @@ extension ViewController: RPPreviewViewControllerDelegate, RPScreenRecorderDeleg
         
         if sharedRecorder.isAvailable {
             DispatchQueue.main.async {
-                self.recordButton.setTitle("[ RECORD ]", for: .normal)
+                let image = UIImage(named: "Rec")
+                self.recordButton.setImage(image, for: .normal)
             }
         } else {
             DispatchQueue.main.async {
-                self.recordButton.setTitle("[ Can't Record ]", for: .normal)
+                let image = UIImage(named: "Recording")
+                self.recordButton.setImage(image, for: .normal)
             }
         }
         
@@ -256,7 +299,8 @@ extension ViewController: RPPreviewViewControllerDelegate, RPScreenRecorderDeleg
             self.isRecording = true
             
             DispatchQueue.main.async {
-                self.recordButton.setTitle("[ STOP ]", for: .normal)
+                let image = UIImage(named: "Recording")
+                self.recordButton.setImage(image, for: .normal)
             }
             
         })
@@ -301,7 +345,8 @@ extension ViewController: RPPreviewViewControllerDelegate, RPScreenRecorderDeleg
         self.isRecording = false
         
         DispatchQueue.main.async {
-            self.recordButton.setTitle("[ RECORD ]", for: .normal)
+            let image = UIImage(named: "Rec")
+            self.recordButton.setImage(image, for: .normal)
         }
         
     }
