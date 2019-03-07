@@ -11,8 +11,4 @@ I thought it would be awesome to create this with ARKit. After some trial and er
 You can record youself with a video and edit it as well to share it with others. You can also use the rear camera to track a users face in real time and display the logo. Just wanted to share this fun project hope you like it :) 
 
 # Using the TrueDepth camera system
-![2018-12-21 20 17 07 0000](https://user-images.githubusercontent.com/26630013/50361951-731bc880-051a-11e9-91a9-b8b736bb079e.GIF)
-
-# Real time face tracking with the rear camera 
-![2018-12-21 20 16 28 0000](https://user-images.githubusercontent.com/26630013/50361992-9e061c80-051a-11e9-96e9-32299e6fcd80.GIF)
-
+![img_1019](https://user-images.githubusercontent.com/26630013/53986764-e96ca780-40d3-11e9-8805-3885cca970db.PNG)
