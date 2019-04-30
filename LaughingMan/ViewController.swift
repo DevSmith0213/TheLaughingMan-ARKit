@@ -42,8 +42,6 @@ class ViewController: UIViewController {
     
   
     
-    
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,12 +56,15 @@ class ViewController: UIViewController {
     
    
     override func viewWillLayoutSubviews() {
-            DispatchQueue.main.async {
+        DispatchQueue.main.async {
             self.sceneView.layer.cornerRadius = 10
-            self.rearCameraButton.layer.cornerRadius = 10
-            self.recordButton.layer.cornerRadius = 10
-            self.maskButton.layer.cornerRadius = 10
+            self.sceneView.layer.masksToBounds = true
+            self.view.layer.cornerRadius = 10
+            self.view.layer.masksToBounds = true
+            //self.sharedRecorder.cameraPreviewView?.frame = self.sceneView.layer.frame
+            
         }
+        
     }
     
     
@@ -273,12 +274,12 @@ extension ViewController: RPPreviewViewControllerDelegate, RPScreenRecorderDeleg
         
         if sharedRecorder.isAvailable {
             DispatchQueue.main.async {
-                let image = UIImage(named: "Rec")
+                let image = UIImage(named: "recordButton")
                 self.recordButton.setImage(image, for: .normal)
             }
         } else {
             DispatchQueue.main.async {
-                let image = UIImage(named: "Recording")
+                let image = UIImage(named: "recordingButton")
                 self.recordButton.setImage(image, for: .normal)
             }
         }
@@ -299,7 +300,7 @@ extension ViewController: RPPreviewViewControllerDelegate, RPScreenRecorderDeleg
             self.isRecording = true
             
             DispatchQueue.main.async {
-                let image = UIImage(named: "Recording")
+                let image = UIImage(named: "recordingButton")
                 self.recordButton.setImage(image, for: .normal)
             }
             
@@ -345,7 +346,7 @@ extension ViewController: RPPreviewViewControllerDelegate, RPScreenRecorderDeleg
         self.isRecording = false
         
         DispatchQueue.main.async {
-            let image = UIImage(named: "Rec")
+            let image = UIImage(named: "recordButton")
             self.recordButton.setImage(image, for: .normal)
         }
         

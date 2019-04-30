@@ -13,8 +13,8 @@
 		9406F0EE216C3F88001AF2F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9406F0EC216C3F88001AF2F0 /* LaunchScreen.storyboard */; };
 		9406F0F6216C430C001AF2F0 /* LaughingMan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9406F0F5216C430C001AF2F0 /* LaughingMan.swift */; };
 		9406F0F8216C4602001AF2F0 /* Models.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 9406F0F7216C4602001AF2F0 /* Models.scnassets */; };
-		94AFA11B21C9FB6B00DEC624 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94AFA11A21C9FB6A00DEC624 /* Assets.xcassets */; };
 		94AFA11D21CA00B400DEC624 /* RearCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AFA11C21CA00B400DEC624 /* RearCameraViewController.swift */; };
+		94BAEDAF2278EEF900242DA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94BAEDAE2278EEF800242DA6 /* Assets.xcassets */; };
 		94F1F72922307EB6000CF58E /* British Inserat MN.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 94F1F72822307EB2000CF58E /* British Inserat MN.ttf */; };
 /* End PBXBuildFile section */
 
@@ -27,8 +27,8 @@
 		9406F0EF216C3F88001AF2F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9406F0F5216C430C001AF2F0 /* LaughingMan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaughingMan.swift; sourceTree = "<group>"; };
 		9406F0F7216C4602001AF2F0 /* Models.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Models.scnassets; sourceTree = "<group>"; };
-		94AFA11A21C9FB6A00DEC624 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../../../../../Desktop/Assets.xcassets; sourceTree = "<group>"; };
 		94AFA11C21CA00B400DEC624 /* RearCameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RearCameraViewController.swift; sourceTree = "<group>"; };
+		94BAEDAE2278EEF800242DA6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		94F1F72822307EB2000CF58E /* British Inserat MN.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "British Inserat MN.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -68,7 +68,7 @@
 				94AFA11C21CA00B400DEC624 /* RearCameraViewController.swift */,
 				9406F0F5216C430C001AF2F0 /* LaughingMan.swift */,
 				9406F0E7216C3F85001AF2F0 /* Main.storyboard */,
-				94AFA11A21C9FB6A00DEC624 /* Assets.xcassets */,
+				94BAEDAE2278EEF800242DA6 /* Assets.xcassets */,
 				9406F0F7216C4602001AF2F0 /* Models.scnassets */,
 				9406F0EC216C3F88001AF2F0 /* LaunchScreen.storyboard */,
 				9406F0EF216C3F88001AF2F0 /* Info.plist */,
@@ -144,8 +144,8 @@
 			files = (
 				9406F0EE216C3F88001AF2F0 /* LaunchScreen.storyboard in Resources */,
 				9406F0F8216C4602001AF2F0 /* Models.scnassets in Resources */,
-				94AFA11B21C9FB6B00DEC624 /* Assets.xcassets in Resources */,
 				9406F0E9216C3F85001AF2F0 /* Main.storyboard in Resources */,
+				94BAEDAF2278EEF900242DA6 /* Assets.xcassets in Resources */,
 				94F1F72922307EB6000CF58E /* British Inserat MN.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

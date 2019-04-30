@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -14,39 +14,38 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="LaughingMan" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S7t-ZA-F5R">
-                                <rect key="frame" x="0.0" y="44" width="414" height="700"/>
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kED-Pl-SRX">
+                                <rect key="frame" x="0.0" y="40" width="375" height="634"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <viewLayoutGuide key="safeArea" id="mwK-ca-Sz6"/>
                             </arscnView>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9JK-Di-nq2">
-                                <rect key="frame" x="65" y="754" width="80" height="80"/>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9JK-Di-nq2">
+                                <rect key="frame" x="34" y="684" width="72" height="73"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <state key="normal" backgroundImage="Laughing_man">
+                                <state key="normal" image="laughingManTransparent">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="didTapMaskButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sZe-Cr-d5F"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xuY-Gp-EWb">
-                                <rect key="frame" x="177" y="754" width="80" height="80"/>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xuY-Gp-EWb">
+                                <rect key="frame" x="151" y="683" width="73" height="73"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="switch-camera-icon-18-256"/>
+                                <state key="normal" image="switch camera"/>
                                 <connections>
                                     <action selector="didTapRearCameraButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GJo-69-1XR"/>
                                     <segue destination="OSS-Dw-HrG" kind="presentation" id="HuA-eq-pla"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x1y-Sh-S4T">
-                                <rect key="frame" x="289" y="754" width="80" height="80"/>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x1y-Sh-S4T">
+                                <rect key="frame" x="260" y="684" width="72" height="73"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <state key="normal" backgroundImage="refresh_white_192x192">
+                                <state key="normal" image="refresh">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -54,10 +53,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YSA-99-4my">
-                                <rect key="frame" x="157" y="651" width="100" height="80"/>
+                                <rect key="frame" x="142" y="594" width="91" height="72"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" image="Rec"/>
+                                <state key="normal" image="recordButton"/>
                                 <connections>
                                     <action selector="didTapRecordButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="966-di-Szm"/>
                                 </connections>
@@ -70,7 +69,7 @@
                         <outlet property="rearCameraButton" destination="xuY-Gp-EWb" id="zvI-Iv-LJK"/>
                         <outlet property="recordButton" destination="YSA-99-4my" id="qxJ-VE-GAR"/>
                         <outlet property="refreshButton" destination="x1y-Sh-S4T" id="pDz-db-Qbd"/>
-                        <outlet property="sceneView" destination="S7t-ZA-F5R" id="Aqx-YY-ehP"/>
+                        <outlet property="sceneView" destination="kED-Pl-SRX" id="fQ4-it-5qi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -82,29 +81,30 @@
             <objects>
                 <viewController id="OSS-Dw-HrG" customClass="RearCameraViewController" customModule="LaughingMan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="B8z-Nu-8W2">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ICc-Ww-kJp">
-                                <rect key="frame" x="0.0" y="44" width="414" height="700"/>
+                                <rect key="frame" x="0.0" y="40" width="375" height="634"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <viewLayoutGuide key="safeArea" id="uW9-hg-XVu"/>
                             </arscnView>
                             <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g7U-as-x48">
-                                <rect key="frame" x="0.0" y="44" width="414" height="55"/>
+                                <rect key="frame" x="0.0" y="40" width="375" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="l6Y-Zw-Ysd">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="55"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QCF-qj-nch">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="55"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="7pQ-D5-DTW">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="55"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Look for a face " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iZh-sZ-yB9">
-                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="55"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -120,12 +120,11 @@
                                 </view>
                                 <blurEffect style="light"/>
                             </visualEffectView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qEe-cc-ArB">
-                                <rect key="frame" x="177" y="782" width="60" height="60"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qEe-cc-ArB">
+                                <rect key="frame" x="151" y="682" width="73" height="72"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <size key="titleShadowOffset" width="1" height="0.0"/>
-                                <state key="normal" backgroundImage="switch-camera-icon-18-256"/>
+                                <state key="normal" image="switch camera"/>
                                 <connections>
                                     <action selector="frontCameraButtonPressed:" destination="OSS-Dw-HrG" eventType="touchUpInside" id="2hS-iT-OrY"/>
                                     <segue destination="BYZ-38-t0r" kind="presentation" modalTransitionStyle="crossDissolve" id="Teo-wC-icC"/>
@@ -146,9 +145,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Laughing_man" width="300" height="273"/>
-        <image name="Rec" width="2732" height="2048"/>
-        <image name="refresh_white_192x192" width="192" height="192"/>
-        <image name="switch-camera-icon-18-256" width="192" height="192"/>
+        <image name="laughingManTransparent" width="300" height="273"/>
+        <image name="recordButton" width="74" height="74"/>
+        <image name="refresh" width="192" height="192"/>
+        <image name="switch camera" width="256" height="256"/>
     </resources>
 </document>
